@@ -14,6 +14,11 @@
             --quantum-glow: #55ffff;
             --text-dim: #a0a8b6;
             --text-bright: #ffffff;
+            --common: #ffffff;
+            --uncommon: #55ff55;
+            --rare: #5555ff;
+            --epic: #ff55ff;
+            --legendary: #ffaa00;
         }
 
         * {
@@ -53,25 +58,48 @@
             min-height: 100vh;
             padding: 2rem;
             background: rgba(10, 14, 23, 0.95);
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLTQwMCA0MDBDMTY2LjY2NyA0MDAgNDAwIDY2Ni42NjcgNDAwIDE0MDBDNCAyMDAgMTY2LjY2NyA0MDAgLTQwMCA0MDBaIiBmaWxsPSJ1cmwoI2dyYWQxKSIvPjxwYXRoIGQ9Ik0xNjAwIDQwMEMxMDMzLjMzIDQwMCA5MDAgMTMzLjMzIDkwMCAtNDAwQzI4MCAwIDQxMy4zMzMgNDAwIDE2MDAgNDAwWiIgZmlsbD0idXJsKCNncmFkMikiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQxIiBjeD0iMCIgY3k9IjAiIHI9IjEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0icm90YXRlKDkwKSI+PHN0b3Agc3RvcC1jb2xvcj0iIzFhNWZiNCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA5MWI0MCIvPjwvcmFkaWFsR3JhZGllbnQ+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkMiIgY3g9IjAiIGN5PSIwIiByPSIxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09InJvdGF0ZSgtOTApIj48c3RvcCBzdG9wLWNvbG9yPSIjOTE0MWEyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNGExYzY5Ii8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+');
+            background-size: cover;
         }
 
         .login-card {
-            background: rgba(20, 25, 40, 0.8);
-            border: 1px solid var(--star-blue);
-            border-radius: 8px;
-            padding: 2rem;
+            background: rgba(20, 25, 40, 0.9);
+            border: 2px solid var(--star-blue);
+            border-radius: 12px;
+            padding: 2.5rem;
             width: 100%;
-            max-width: 400px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(26, 95, 180, 0.3);
+            max-width: 450px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 40px rgba(26, 95, 180, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--star-blue), var(--nebula-purple));
         }
 
         .login-card h1 {
             text-align: center;
             margin-bottom: 2rem;
             color: var(--quantum-glow);
-            font-size: 2rem;
-            text-shadow: 0 0 10px currentColor;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px currentColor;
+            letter-spacing: 2px;
+        }
+
+        .login-card .subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         .input-group {
@@ -82,49 +110,91 @@
             display: block;
             margin-bottom: 0.5rem;
             color: var(--text-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .input-group input {
             width: 100%;
-            padding: 0.75rem;
-            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.7);
             border: 1px solid var(--star-blue);
-            border-radius: 4px;
+            border-radius: 6px;
             color: var(--text-bright);
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .input-group input:focus {
             outline: none;
             border-color: var(--quantum-glow);
-            box-shadow: 0 0 10px var(--quantum-glow);
+            box-shadow: 0 0 15px var(--quantum-glow);
+            background: rgba(0, 0, 0, 0.9);
         }
 
         .btn {
             background: linear-gradient(135deg, var(--star-blue), var(--nebula-purple));
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            border-radius: 6px;
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(26, 95, 180, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 95, 180, 0.5);
         }
 
         .btn:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.5s;
+        }
+
+        .btn:hover::after {
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         .btn-block {
             width: 100%;
+        }
+
+        #loginMessage {
+            margin-top: 1rem;
+            text-align: center;
+            min-height: 20px;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .message-error {
+            color: #ff5555;
+            background: rgba(255, 85, 85, 0.1);
+        }
+
+        .message-success {
+            color: #55ff55;
+            background: rgba(85, 255, 85, 0.1);
         }
 
         /* Game Header */
@@ -133,31 +203,59 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             padding: 1rem;
-            background: rgba(20, 25, 40, 0.8);
-            border: 1px solid var(--star-blue);
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
+            background: rgba(20, 25, 40, 0.9);
+            border: 2px solid var(--star-blue);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #gameHeader::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--star-blue), var(--nebula-purple));
         }
 
         .stat-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0.5rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(85, 255, 255, 0.05), transparent);
+            pointer-events: none;
         }
 
         .stat-label {
             font-size: 0.8rem;
             color: var(--text-dim);
             margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .stat-value {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: var(--quantum-glow);
+            text-shadow: 0 0 10px currentColor;
         }
 
         /* Main Content Area */
@@ -170,16 +268,36 @@
 
         .tab-content {
             display: none;
-            padding: 1rem;
-            background: rgba(20, 25, 40, 0.8);
-            border: 1px solid var(--star-blue);
-            border-radius: 8px;
+            padding: 1.5rem;
+            background: rgba(20, 25, 40, 0.9);
+            border: 2px solid var(--star-blue);
+            border-radius: 12px;
             min-height: 500px;
             overflow-y: auto;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .tab-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--star-blue), var(--nebula-purple));
         }
 
         .tab-content.active {
             display: block;
+        }
+
+        .tab-content h2 {
+            color: var(--quantum-glow);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(85, 255, 255, 0.3);
+            text-shadow: 0 0 10px currentColor;
         }
 
         /* Navigation */
@@ -188,31 +306,64 @@
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 0.5rem;
             padding: 1rem;
-            background: rgba(20, 25, 40, 0.8);
-            border: 1px solid var(--star-blue);
-            border-radius: 8px;
+            background: rgba(20, 25, 40, 0.9);
+            border: 2px solid var(--star-blue);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        #gameNav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--star-blue), var(--nebula-purple));
         }
 
         .nav-btn {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--star-blue);
             color: var(--text-bright);
             padding: 0.75rem;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 0.9rem;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
         }
 
         .nav-btn:hover {
-            background: rgba(26, 95, 180, 0.2);
+            background: rgba(26, 95, 180, 0.3);
             border-color: var(--quantum-glow);
+            transform: translateY(-2px);
         }
 
         .nav-btn.active {
-            background: var(--star-blue);
+            background: linear-gradient(135deg, var(--star-blue), var(--nebula-purple));
             border-color: var(--quantum-glow);
+            box-shadow: 0 0 15px rgba(85, 255, 255, 0.5);
+        }
+
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-btn:hover::after {
+            left: 100%;
         }
 
         /* Battle Screen */
@@ -223,76 +374,212 @@
             height: 100%;
         }
 
+        @media (max-width: 768px) {
+            .battle-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .combatant {
             text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .combatant::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            pointer-events: none;
         }
 
         .combatant.player {
             border-color: var(--star-blue);
+            box-shadow: 0 0 20px rgba(26, 95, 180, 0.3);
         }
 
         .combatant.enemy {
             border-color: var(--reality-fracture);
+            box-shadow: 0 0 20px rgba(255, 85, 85, 0.3);
+        }
+
+        .combatant-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-bright);
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .combatant.player .combatant-name {
+            color: var(--quantum-glow);
+        }
+
+        .combatant.enemy .combatant-name {
+            color: var(--reality-fracture);
+        }
+
+        .combatant-visual {
+            width: 120px;
+            height: 120px;
+            margin: 1rem auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            border: 3px solid;
+            position: relative;
+        }
+
+        .combatant.player .combatant-visual {
+            border-color: var(--star-blue);
+            box-shadow: 0 0 20px var(--star-blue);
+        }
+
+        .combatant.enemy .combatant-visual {
+            border-color: var(--reality-fracture);
+            box-shadow: 0 0 20px var(--reality-fracture);
         }
 
         .health-bar {
             width: 100%;
-            height: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+            height: 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
             margin: 1rem 0;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
         }
 
         .health-fill {
             height: 100%;
-            background: linear-gradient(90deg, #ff5555, #55ff55);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #ff5555, #ffaa00, #55ff55);
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .health-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .combatant-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .stat-small {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .stat-small span {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--text-bright);
+            font-weight: bold;
+        }
+
+        .battle-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
         }
 
         .battle-log {
             grid-column: span 2;
-            height: 200px;
+            height: 250px;
             overflow-y: auto;
             padding: 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            font-family: monospace;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
             font-size: 0.9rem;
+            border: 1px solid rgba(85, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .battle-log {
+                grid-column: span 1;
+            }
         }
 
         .log-entry {
             margin-bottom: 0.5rem;
-            padding: 0.25rem;
+            padding: 0.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .log-entry::before {
+            content: '>';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--quantum-glow);
+        }
+
+        .log-entry.player {
+            color: var(--quantum-glow);
+            background: rgba(85, 255, 255, 0.05);
+        }
+
+        .log-entry.enemy {
+            color: var(--reality-fracture);
+            background: rgba(255, 85, 85, 0.05);
+        }
+
+        .log-entry.system {
+            color: var(--text-dim);
+            font-style: italic;
         }
 
         /* Planet Grid */
         .planet-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 0;
         }
 
         .planet-card {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border: 2px solid var(--star-blue);
-            border-radius: 8px;
-            padding: 1rem;
+            border-radius: 12px;
+            padding: 1.25rem;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .planet-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.05);
             border-color: var(--quantum-glow);
-            box-shadow: 0 5px 20px rgba(85, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(85, 255, 255, 0.3);
         }
 
         .planet-card::before {
@@ -301,24 +588,174 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--star-blue), var(--nebula-purple));
         }
 
+        .planet-card.active {
+            border-color: var(--quantum-glow);
+            box-shadow: 0 0 25px rgba(85, 255, 255, 0.5);
+            animation: pulse 2s infinite;
+        }
+
         .planet-name {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             color: var(--quantum-glow);
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .planet-visual {
+            width: 80px;
+            height: 80px;
+            margin: 0.75rem auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            border: 2px solid var(--star-blue);
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .planet-card:hover .planet-visual {
+            border-color: var(--quantum-glow);
+            box-shadow: 0 0 20px var(--quantum-glow);
         }
 
         .planet-meta {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin: 0.25rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .planet-meta span:last-child {
+            color: var(--text-bright);
+        }
+
+        .planet-distortions {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.8rem;
+            color: var(--reality-fracture);
+        }
+
+        /* Inventory */
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .item-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .item-card.common { border-color: var(--common); }
+        .item-card.uncommon { border-color: var(--uncommon); }
+        .item-card.rare { border-color: var(--rare); }
+        .item-card.epic { border-color: var(--epic); }
+        .item-card.legendary { border-color: var(--legendary); }
+
+        .item-card.equipped {
+            border-style: double;
+            border-width: 4px;
+        }
+
+        .item-visual {
+            width: 64px;
+            height: 64px;
+            margin: 0.5rem auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .item-name {
+            font-weight: bold;
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .item-card.common .item-name { color: var(--common); }
+        .item-card.uncommon .item-name { color: var(--uncommon); }
+        .item-card.rare .item-name { color: var(--rare); }
+        .item-card.epic .item-name { color: var(--epic); }
+        .item-card.legendary .item-name { 
+            color: var(--legendary);
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .item-stats {
+            font-size: 0.85rem;
             color: var(--text-dim);
         }
 
+        .item-type {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Player Stats */
+        .player-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(85, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--quantum-glow);
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .stat-card .subvalue {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-top: 0.25rem;
+        }
+
         /* Distortion Effects */
-        .distortion-overlay {
+        #distortionOverlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -326,8 +763,55 @@
             bottom: 0;
             pointer-events: none;
             z-index: 1000;
-            opacity: 0.1;
+            opacity: 0;
             mix-blend-mode: screen;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 25px rgba(85, 255, 255, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(85, 255, 255, 0.8);
+            }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .glitch {
+            animation: glitch 0.3s infinite;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
         }
 
         /* Responsive Design */
@@ -337,61 +821,119 @@
                 gap: 0.5rem;
             }
 
-            .battle-container {
-                grid-template-columns: 1fr;
+            .planet-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
 
-            .planet-grid {
+            .inventory-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
+
+            .combatant-visual {
+                width: 80px;
+                height: 80px;
+            }
+
+            .battle-actions {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
         }
 
-        .glitch {
-            animation: glitch 0.5s infinite;
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--star-blue), var(--nebula-purple));
+            border-radius: 4px;
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--nebula-purple), var(--star-blue));
         }
 
-        /* Rarity Colors */
-        .common { color: #ffffff; }
-        .uncommon { color: #55ff55; }
-        .rare { color: #5555ff; }
-        .epic { color: #ff55ff; }
-        .legendary { color: #ffaa00; text-shadow: 0 0 10px currentColor; }
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            color: var(--quantum-glow);
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            border: 3px solid transparent;
+            border-top-color: var(--quantum-glow);
+            border-radius: 50%;
+            animation: rotate 1s linear infinite;
+            position: absolute;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--star-blue);
+            border-radius: 6px;
+            padding: 0.75rem;
+            color: var(--text-bright);
+            font-size: 0.85rem;
+            max-width: 300px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.9);
+            border-left: 1px solid var(--star-blue);
+            border-top: 1px solid var(--star-blue);
+        }
     </style>
 </head>
 <body>
     <!-- Login Screen -->
     <div id="loginScreen">
         <div class="login-card">
-            <h1>Cosmic Fracture</h1>
+            <h1>COSMIC FRACTURE</h1>
+            <div class="subtitle">Reality Remembers Everything</div>
             <div class="input-group">
-                <label for="nickname">Nickname</label>
-                <input type="text" id="nickname" placeholder="Enter your cosmic signature" maxlength="20">
+                <label for="nickname">Quantum Signature</label>
+                <input type="text" id="nickname" placeholder="Enter your cosmic ID" maxlength="20" autocomplete="off">
             </div>
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Quantum key">
+                <label for="password">Reality Key</label>
+                <input type="password" id="password" placeholder="Encryption required" autocomplete="off">
             </div>
-            <button id="loginBtn" class="btn btn-block">Initiate Reality Dive</button>
-            <div id="loginMessage" style="margin-top: 1rem; text-align: center; color: #ff5555; min-height: 20px;"></div>
+            <button id="loginBtn" class="btn btn-block">INITIATE REALITY DIVE</button>
+            <div id="loginMessage"></div>
         </div>
     </div>
 
@@ -425,24 +967,28 @@
         <div id="gameContent">
             <!-- Player Tab -->
             <div id="playerTab" class="tab-content active">
-                <h2>Quantum Signature</h2>
-                <div id="playerStats">
+                <h2>QUANTUM SELF</h2>
+                <div id="playerStats" class="player-stats-grid">
                     <!-- Player stats will be loaded here -->
+                </div>
+                <h3 style="margin-top: 2rem; color: var(--quantum-glow);">EQUIPPED ITEMS</h3>
+                <div id="equippedItems" class="inventory-grid">
+                    <!-- Equipped items will be loaded here -->
                 </div>
             </div>
 
             <!-- Inventory Tab -->
             <div id="inventoryTab" class="tab-content">
-                <h2>Reality Anchors</h2>
-                <div id="inventoryGrid">
+                <h2>REALITY ANCHORS</h2>
+                <div id="inventoryGrid" class="inventory-grid">
                     <!-- Inventory items will be loaded here -->
                 </div>
             </div>
 
             <!-- Planet Map Tab -->
             <div id="planetTab" class="tab-content">
-                <h2>Fractured Cosmos</h2>
-                <div class="planet-grid" id="planetGrid">
+                <h2>FRACTURED COSMOS</h2>
+                <div id="planetGrid" class="planet-grid">
                     <!-- Planets will be loaded here -->
                 </div>
             </div>
@@ -451,34 +997,44 @@
             <div id="battleTab" class="tab-content">
                 <div class="battle-container">
                     <div class="combatant player">
-                        <div id="playerName" class="combatant-name">Player</div>
+                        <div id="playerName" class="combatant-name">VOID WALKER</div>
+                        <div id="playerVisual" class="combatant-visual"></div>
                         <div class="health-bar">
                             <div id="playerHealthBar" class="health-fill" style="width: 100%"></div>
                         </div>
-                        <div id="playerStatsBattle"></div>
-                        <div id="playerActions">
-                            <button class="btn attack-btn">Quantum Strike</button>
-                            <button class="btn defend-btn">Reality Shield</button>
-                            <button class="btn item-btn">Anchored Item</button>
-                            <button class="btn flee-btn">Phase Shift</button>
+                        <div id="playerStatsBattle" class="combatant-stats">
+                            <div class="stat-small">HP<br><span id="playerHP">100/100</span></div>
+                            <div class="stat-small">ATK<br><span id="playerATK">10</span></div>
+                            <div class="stat-small">DEF<br><span id="playerDEF">5</span></div>
+                        </div>
+                        <div class="battle-actions">
+                            <button class="btn attack-btn" style="grid-column: span 2;">QUANTUM STRIKE</button>
+                            <button class="btn defend-btn">REALITY SHIELD</button>
+                            <button class="btn item-btn">ANCHORED ITEM</button>
+                            <button class="btn flee-btn" style="background: linear-gradient(135deg, var(--reality-fracture), #ffaa00);">PHASE SHIFT</button>
                         </div>
                     </div>
                     <div class="combatant enemy">
-                        <div id="enemyName" class="combatant-name">Unknown Entity</div>
+                        <div id="enemyName" class="combatant-name">UNKNOWN ENTITY</div>
+                        <div id="enemyVisual" class="combatant-visual"></div>
                         <div class="health-bar">
                             <div id="enemyHealthBar" class="health-fill" style="width: 100%"></div>
                         </div>
-                        <div id="enemyStats"></div>
+                        <div id="enemyStats" class="combatant-stats">
+                            <div class="stat-small">HP<br><span id="enemyHP">100/100</span></div>
+                            <div class="stat-small">ATK<br><span id="enemyATK">10</span></div>
+                            <div class="stat-small">DEF<br><span id="enemyDEF">5</span></div>
+                        </div>
                     </div>
                     <div class="battle-log" id="battleLog">
-                        <div class="log-entry">Reality stabilized. Combat initialized.</div>
+                        <div class="log-entry system">Reality stabilized. Combat initialized.</div>
                     </div>
                 </div>
             </div>
 
             <!-- Planet History Tab -->
             <div id="historyTab" class="tab-content">
-                <h2>Cosmic Memory</h2>
+                <h2>COSMIC MEMORY</h2>
                 <div id="planetHistory">
                     <!-- Planet history will be loaded here -->
                 </div>
@@ -487,16 +1043,19 @@
 
         <!-- Navigation -->
         <div id="gameNav">
-            <button class="nav-btn active" data-tab="playerTab">Quantum Self</button>
-            <button class="nav-btn" data-tab="inventoryTab">Anchors</button>
-            <button class="nav-btn" data-tab="planetTab">Cosmos</button>
-            <button class="nav-btn" data-tab="battleTab">Fracture</button>
-            <button class="nav-btn" data-tab="historyTab">Memory</button>
+            <button class="nav-btn active" data-tab="playerTab">QUANTUM SELF</button>
+            <button class="nav-btn" data-tab="inventoryTab">ANCHORS</button>
+            <button class="nav-btn" data-tab="planetTab">COSMOS</button>
+            <button class="nav-btn" data-tab="battleTab">FRACTURE</button>
+            <button class="nav-btn" data-tab="historyTab">MEMORY</button>
         </div>
     </div>
 
     <!-- Distortion Overlay -->
     <div id="distortionOverlay" class="distortion-overlay"></div>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip"></div>
 
     <script>
         // ====================
@@ -528,11 +1087,20 @@
 
                 this.config = {
                     seed: Date.now(),
-                    saveInterval: 30000, // 30 seconds
+                    saveInterval: 30000,
                     maxCorruption: 100,
                     instabilityThresholds: [20, 50, 80],
                     distortionCap: 5,
-                    echoRetention: 10 // Keep last 10 echoes
+                    echoRetention: 10,
+                    baseExpPerLevel: 100
+                };
+
+                this.assets = {
+                    planets: new Map(),
+                    enemies: new Map(),
+                    items: new Map(),
+                    player: new Map(),
+                    ui: new Map()
                 };
 
                 this.extensionPoints = {
@@ -541,8 +1109,103 @@
                     registerEnemy: this.registerEnemy.bind(this),
                     registerItem: this.registerItem.bind(this),
                     addHook: this.addHook.bind(this),
-                    getRegistry: this.getRegistry.bind(this)
+                    getRegistry: this.getRegistry.bind(this),
+                    loadAsset: this.loadAsset.bind(this)
                 };
+            }
+
+            // Asset loader with fallback
+            async loadAsset(type, filename) {
+                const cacheKey = `${type}/${filename}`;
+                
+                if (this.assets[type].has(cacheKey)) {
+                    return this.assets[type].get(cacheKey);
+                }
+
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.assets[type].set(cacheKey, img.src);
+                        resolve(img.src);
+                    };
+                    img.onerror = () => {
+                        // Create SVG fallback
+                        const fallback = this.createFallbackSVG(type, filename);
+                        this.assets[type].set(cacheKey, fallback);
+                        resolve(fallback);
+                    };
+                    img.src = `/assets/${type}/${filename}`;
+                });
+            }
+
+            createFallbackSVG(type, name) {
+                const colors = {
+                    planet: ['#1a5fb4', '#0a5fff', '#55ffff'],
+                    enemy: ['#ff5555', '#9141ac', '#ffaa00'],
+                    item: ['#1a5fb4', '#55ffff', '#ffffff'],
+                    player: ['#1a5fb4', '#55ffff', '#ffffff']
+                };
+
+                const colorSet = colors[type] || colors.planet;
+                
+                if (type === 'planet') {
+                    return `data:image/svg+xml;base64,${btoa(`
+                        <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="64" cy="64" r="60" fill="${colorSet[0]}"/>
+                            <circle cx="64" cy="64" r="55" fill="${colorSet[1]}"/>
+                            <circle cx="40" cy="40" r="10" fill="${colorSet[2]}"/>
+                            <circle cx="88" cy="88" r="8" fill="${colorSet[2]}"/>
+                            <circle cx="70" cy="50" r="6" fill="${colorSet[2]}"/>
+                            <circle cx="50" cy="80" r="7" fill="${colorSet[2]}"/>
+                        </svg>
+                    `)}`;
+                }
+
+                if (type === 'enemy') {
+                    return `data:image/svg+xml;base64,${btoa(`
+                        <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="48" cy="48" r="35" fill="${colorSet[0]}"/>
+                            <circle cx="48" cy="48" r="30" fill="${colorSet[1]}"/>
+                            <rect x="40" y="30" width="16" height="36" rx="8" fill="${colorSet[2]}"/>
+                            <rect x="20" y="50" width="16" height="36" rx="8" fill="${colorSet[2]}" transform="rotate(-90 20 50)"/>
+                            <rect x="60" y="50" width="16" height="36" rx="8" fill="${colorSet[2]}" transform="rotate(90 60 50)"/>
+                        </svg>
+                    `)}`;
+                }
+
+                if (type === 'item') {
+                    return `data:image/svg+xml;base64,${btoa(`
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="64" height="64" rx="12" fill="${colorSet[0]}"/>
+                            <rect x="12" y="12" width="40" height="40" rx="8" fill="${colorSet[1]}"/>
+                            <path d="M32 20v24M42 19v28M22 21v28" stroke="${colorSet[2]}" stroke-width="4"/>
+                        </svg>
+                    `)}`;
+                }
+
+                if (type === 'player') {
+                    return `data:image/svg+xml;base64,${btoa(`
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="20" r="12" fill="${colorSet[0]}"/>
+                            <rect x="24" y="32" width="16" height="24" rx="8" fill="${colorSet[0]}"/>
+                            <path d="M40 20v-4M24 20v-4" stroke="${colorSet[1]}" stroke-width="2"/>
+                        </svg>
+                    `)}`;
+                }
+
+                return `data:image/svg+xml;base64,${btoa(`
+                    <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="60" rx="8" fill="url(#grad)"/>
+                        <line x1="10" y1="10" x2="190" y2="10" stroke="#FFFFFF" stroke-width="2"/>
+                        <text x="100" y="35" fill="#FFFFFF" font-family="Arial" font-size="14" text-anchor="middle">${name}</text>
+                        <defs>
+                            <linearGradient id="grad" x1="0" y1="0" x2="200" y2="0">
+                                <stop stop-color="#1a5fb4"/>
+                                <stop offset="1" stop-color="#9141ac"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                `)}`;
             }
 
             // Registry Management
@@ -552,8 +1215,9 @@
                     ...data,
                     id,
                     active: false,
-                    intensity: 0
+                    intensity: 1
                 });
+                console.log(`Registered distortion: ${id}`);
                 return id;
             }
 
@@ -571,9 +1235,11 @@
                     },
                     distortions: [],
                     corruption: 0,
-                    instability: 0,
-                    seed: Math.floor(Math.random() * 1000000)
+                    instability: template.baseInstability || 10,
+                    seed: Math.floor(Math.random() * 1000000),
+                    level: 1
                 });
+                console.log(`Registered planet: ${id}`);
                 return id;
             }
 
@@ -584,6 +1250,7 @@
                     id,
                     baseStats: template.stats || { health: 100, attack: 10, defense: 5 }
                 });
+                console.log(`Registered enemy: ${id}`);
                 return id;
             }
 
@@ -594,6 +1261,7 @@
                     id,
                     equipped: false
                 });
+                console.log(`Registered item: ${id}`);
                 return id;
             }
 
@@ -667,7 +1335,7 @@
                 });
             }
 
-            // Credential Hashing (Simple XOR for demo - use proper crypto in production)
+            // Credential Hashing
             hashCredentials(username, password) {
                 let hash = 0;
                 const str = username + password;
@@ -675,7 +1343,7 @@
                     hash = ((hash << 5) - hash) + str.charCodeAt(i);
                     hash |= 0;
                 }
-                return hash.toString(36);
+                return 'player_' + Math.abs(hash).toString(36);
             }
         }
 
@@ -690,13 +1358,13 @@
             battle: null,
             ui: null,
             
-            init() {
+            async init() {
                 // Initialize registries with base content
                 this.initRegistries();
                 
                 // Set up UI
                 this.ui = new UISystem();
-                this.ui.init();
+                await this.ui.init();
                 
                 // Set up battle system
                 this.battle = new BattleSystem();
@@ -706,13 +1374,16 @@
                     if (this.player) {
                         this.saveGameState();
                     }
-                }, game.engine.config.saveInterval);
+                }, this.engine.config.saveInterval);
                 
                 console.log('Cosmic Fracture initialized');
+                
+                // Try auto-login
+                await this.autoLogin();
             },
             
             initRegistries() {
-                // Register Distortions (20+ as required)
+                // Register Distortions
                 this.registerDistortions();
                 
                 // Register Base Planets
@@ -726,12 +1397,12 @@
             },
             
             registerDistortions() {
-                // 20+ Distortions as specified
                 const distortions = [
                     {
                         id: 'blood_echo',
                         name: 'Blood Echo',
-                        description: 'Enemies gain 1% damage for each player death on this planet',
+                        description: 'Enemies gain 1% damage for each player death',
+                        color: '#ff5555',
                         apply: (planet, enemy) => {
                             const deaths = planet.memory.deaths;
                             enemy.stats.attack += enemy.baseStats.attack * (deaths * 0.01);
@@ -741,40 +1412,46 @@
                         id: 'fractured_time',
                         name: 'Fractured Time',
                         description: 'Turn order randomly swaps each round',
+                        color: '#55ffff',
                         apply: (planet, combat) => {
                             if (Math.random() > 0.5) {
                                 combat.turnOrder.reverse();
+                                combat.logMessage('Time fractured! Turn order reversed.', 'system');
                             }
                         }
                     },
                     {
                         id: 'reality_drift',
                         name: 'Reality Drift',
-                        description: 'Damage formulas change slightly each battle',
+                        description: 'Damage formulas change each battle',
+                        color: '#9141ac',
                         apply: (planet) => {
-                            planet.damageMultiplier = 0.8 + Math.random() * 0.4;
+                            planet.damageMultiplier = 0.7 + Math.random() * 0.6;
                         }
                     },
                     {
                         id: 'observer_effect',
                         name: 'Observer Effect',
                         description: 'Critical hit chance fluctuates unpredictably',
-                        apply: (planet) => {
-                            planet.critChance = Math.random() * 0.3;
+                        color: '#ffaa00',
+                        apply: () => {
+                            return { critMod: Math.random() * 0.4 - 0.2 };
                         }
                     },
                     {
                         id: 'silent_orbit',
                         name: 'Silent Orbit',
-                        description: 'Battle log hides 30% of combat information',
+                        description: 'Battle log hides 30% of information',
+                        color: '#a0a8b6',
                         apply: () => {
-                            // Implemented in UI
+                            return { logChance: 0.7 };
                         }
                     },
                     {
                         id: 'gravitational_collapse',
                         name: 'Gravitational Collapse',
                         description: 'Defense effectiveness reduced by 50%',
+                        color: '#ff5555',
                         apply: (planet, combatant) => {
                             combatant.stats.defense *= 0.5;
                         }
@@ -782,15 +1459,17 @@
                     {
                         id: 'quantum_feedback',
                         name: 'Quantum Feedback',
-                        description: '20% chance for damage to reflect back',
+                        description: '20% chance for damage to reflect',
+                        color: '#55ffff',
                         apply: () => {
-                            // Implemented in battle
+                            return { reflectChance: 0.2 };
                         }
                     },
                     {
                         id: 'memory_scar',
                         name: 'Memory Scar',
-                        description: 'Repeated enemies gain 10% strength each encounter',
+                        description: 'Repeated enemies gain 10% strength',
+                        color: '#9141ac',
                         apply: (planet, enemy) => {
                             const encounters = planet.memory.visits;
                             enemy.stats.health *= 1 + (encounters * 0.1);
@@ -799,31 +1478,35 @@
                     {
                         id: 'temporal_lag',
                         name: 'Temporal Lag',
-                        description: 'Damage applies 1 turn later',
+                        description: 'Damage applies next turn',
+                        color: '#ffaa00',
                         apply: () => {
-                            // Implemented in battle
+                            return { delayedDamage: true };
                         }
                     },
                     {
                         id: 'void_hunger',
                         name: 'Void Hunger',
                         description: 'Player healing reduced by 70%',
+                        color: '#000000',
                         apply: () => {
-                            // Implemented in battle
+                            return { healMultiplier: 0.3 };
                         }
                     },
                     {
                         id: 'star_rot',
                         name: 'Star Rot',
-                        description: 'Items degrade 50% faster',
+                        description: 'Items degrade faster',
+                        color: '#ff5555',
                         apply: () => {
-                            // Implemented in item system
+                            return { itemDecay: 2.0 };
                         }
                     },
                     {
                         id: 'echo_chamber',
                         name: 'Echo Chamber',
                         description: 'Past damage patterns repeat',
+                        color: '#55ffff',
                         apply: (planet) => {
                             planet.lastDamagePattern = planet.lastDamagePattern || [];
                         }
@@ -832,6 +1515,7 @@
                         id: 'phase_instability',
                         name: 'Phase Instability',
                         description: 'Random stat swaps each turn',
+                        color: '#9141ac',
                         apply: (combatant) => {
                             const stats = Object.keys(combatant.stats);
                             if (stats.length >= 2) {
@@ -845,54 +1529,52 @@
                         id: 'broken_constants',
                         name: 'Broken Constants',
                         description: 'Fixed bonuses stop working',
+                        color: '#a0a8b6',
                         apply: () => {
-                            // Implemented in stat calculation
-                        }
-                    },
-                    {
-                        id: 'corrupted_light',
-                        name: 'Corrupted Light',
-                        description: 'Visuals distort with danger level',
-                        apply: () => {
-                            // Implemented in UI
+                            return { ignoreConstants: true };
                         }
                     },
                     {
                         id: 'gravity_well',
                         name: 'Gravity Well',
                         description: 'Dodge chance reduced to 0%',
+                        color: '#000000',
                         apply: () => {
-                            // Implemented in battle
+                            return { dodgeCap: 0 };
                         }
                     },
                     {
                         id: 'paradox_bloom',
                         name: 'Paradox Bloom',
                         description: 'Buffs create hidden debuffs',
-                        apply: (combatant) => {
-                            // Implemented in buff system
+                        color: '#ff55ff',
+                        apply: () => {
+                            return { paradoxChance: 0.3 };
                         }
                     },
                     {
                         id: 'observers_curse',
                         name: "Observer's Curse",
                         description: 'Planet adapts to your build',
+                        color: '#ffaa00',
                         apply: (planet, player) => {
-                            // Implemented in planet generation
+                            planet.adaptation = (planet.adaptation || 0) + 0.1;
                         }
                     },
                     {
                         id: 'fading_reality',
                         name: 'Fading Reality',
                         description: 'UI elements subtly shift',
+                        color: '#a0a8b6',
                         apply: () => {
-                            // Implemented in UI
+                            return { uiShift: true };
                         }
                     },
                     {
                         id: 'planetary_wrath',
                         name: 'Planetary Wrath',
                         description: 'Bosses inherit planet memory',
+                        color: '#ff5555',
                         apply: (planet, boss) => {
                             boss.memoryPower = planet.memory.visits * 0.01;
                         }
@@ -900,7 +1582,8 @@
                     {
                         id: 'entropic_decay',
                         name: 'Entropic Decay',
-                        description: 'All stats slowly degrade over time',
+                        description: 'All stats slowly degrade',
+                        color: '#000000',
                         apply: (combatant) => {
                             Object.keys(combatant.stats).forEach(stat => {
                                 combatant.stats[stat] *= 0.99;
@@ -910,14 +1593,30 @@
                     {
                         id: 'quantum_entanglement',
                         name: 'Quantum Entanglement',
-                        description: 'Player and enemy stats become linked',
+                        description: 'Player and enemy stats linked',
+                        color: '#55ffff',
                         apply: (player, enemy) => {
-                            // Implemented in battle
+                            const avgAttack = (player.stats.attack + enemy.stats.attack) / 2;
+                            player.stats.attack = avgAttack;
+                            enemy.stats.attack = avgAttack;
+                        }
+                    },
+                    {
+                        id: 'chronal_rupture',
+                        name: 'Chronal Rupture',
+                        description: 'Time flows backwards occasionally',
+                        color: '#55ffff',
+                        apply: (planet, combat) => {
+                            if (Math.random() > 0.9) {
+                                combat.turnOrder.reverse();
+                                combat.logMessage('Chronal rupture! Time flows backwards.', 'system');
+                            }
                         }
                     }
                 ];
                 
-                distortions.forEach(d => game.engine.registerDistortion(d));
+                distortions.forEach(d => this.engine.registerDistortion(d));
+                console.log(`Registered ${distortions.length} distortions`);
             },
             
             registerPlanets() {
@@ -928,7 +1627,8 @@
                         biome: 'crystal',
                         baseInstability: 10,
                         corruptionRate: 0.5,
-                        visual: 'crystal_planet.png'
+                        visual: 'crystalline_wastes.png',
+                        description: 'A shattered world of eternal quartz and frozen light'
                     },
                     {
                         id: 'void_nexus',
@@ -936,7 +1636,8 @@
                         biome: 'void',
                         baseInstability: 30,
                         corruptionRate: 1.2,
-                        visual: 'void_planet.png'
+                        visual: 'void_nexus.png',
+                        description: 'An absence in reality that hungers for existence'
                     },
                     {
                         id: 'nebulous_garden',
@@ -944,7 +1645,8 @@
                         biome: 'nebula',
                         baseInstability: 15,
                         corruptionRate: 0.8,
-                        visual: 'nebula_planet.png'
+                        visual: 'nebulous_garden.png',
+                        description: 'Living gas clouds that remember every touch'
                     },
                     {
                         id: 'quantum_fracture',
@@ -952,7 +1654,8 @@
                         biome: 'fracture',
                         baseInstability: 50,
                         corruptionRate: 2.0,
-                        visual: 'fracture_planet.png'
+                        visual: 'quantum_fracture.png',
+                        description: 'Reality torn open, leaking possibilities'
                     },
                     {
                         id: 'echoing_tomb',
@@ -960,7 +1663,8 @@
                         biome: 'tomb',
                         baseInstability: 25,
                         corruptionRate: 1.0,
-                        visual: 'tomb_planet.png'
+                        visual: 'echoing_tomb.png',
+                        description: 'World-grave that whispers of forgotten wars'
                     },
                     {
                         id: 'stellar_forge',
@@ -968,7 +1672,8 @@
                         biome: 'forge',
                         baseInstability: 20,
                         corruptionRate: 0.7,
-                        visual: 'forge_planet.png'
+                        visual: 'stellar_forge.png',
+                        description: 'Atomic crucible where stars are born and die'
                     },
                     {
                         id: 'memory_palace',
@@ -976,7 +1681,8 @@
                         biome: 'memory',
                         baseInstability: 40,
                         corruptionRate: 1.5,
-                        visual: 'memory_planet.png'
+                        visual: 'memory_palace.png',
+                        description: 'Crystalline archive of every thought ever had'
                     },
                     {
                         id: 'reality_seam',
@@ -984,11 +1690,13 @@
                         biome: 'seam',
                         baseInstability: 60,
                         corruptionRate: 2.5,
-                        visual: 'seam_planet.png'
+                        visual: 'reality_seam.png',
+                        description: 'Stitching between dimensions coming undone'
                     }
                 ];
                 
-                planetTypes.forEach(p => game.engine.registerPlanet(p));
+                planetTypes.forEach(p => this.engine.registerPlanet(p));
+                console.log(`Registered ${planetTypes.length} planets`);
             },
             
             registerEnemies() {
@@ -996,48 +1704,55 @@
                     {
                         id: 'void_lurker',
                         name: 'Void Lurker',
-                        stats: { health: 50, attack: 8, defense: 3 },
+                        stats: { health: 50, attack: 8, defense: 3, speed: 12 },
                         tier: 1,
-                        visual: 'void_lurker.png'
+                        visual: 'void_lurker.png',
+                        description: 'Shadow that feeds on forgotten light'
                     },
                     {
                         id: 'crystal_shard',
                         name: 'Crystal Shard',
-                        stats: { health: 80, attack: 6, defense: 8 },
+                        stats: { health: 80, attack: 6, defense: 8, speed: 8 },
                         tier: 1,
-                        visual: 'crystal_shard.png'
+                        visual: 'crystal_shard.png',
+                        description: 'Living mineral with perfect geometric malice'
                     },
                     {
                         id: 'echo_wraith',
                         name: 'Echo Wraith',
-                        stats: { health: 60, attack: 10, defense: 4 },
+                        stats: { health: 60, attack: 10, defense: 4, speed: 14 },
                         tier: 2,
-                        visual: 'echo_wraith.png'
+                        visual: 'echo_wraith.png',
+                        description: 'Ghost of a battle that never ended'
                     },
                     {
                         id: 'quantum_phantom',
                         name: 'Quantum Phantom',
-                        stats: { health: 100, attack: 12, defense: 6 },
+                        stats: { health: 100, attack: 12, defense: 6, speed: 16 },
                         tier: 3,
-                        visual: 'quantum_phantom.png'
+                        visual: 'quantum_phantom.png',
+                        description: 'Probability given form and hunger'
                     },
                     {
                         id: 'reality_reaver',
                         name: 'Reality Reaver',
-                        stats: { health: 150, attack: 15, defense: 10 },
+                        stats: { health: 150, attack: 15, defense: 10, speed: 10 },
                         tier: 4,
-                        visual: 'reality_reaver.png'
+                        visual: 'reality_reaver.png',
+                        description: 'Machine that consumes the fabric of existence'
                     },
                     {
                         id: 'entropy_drake',
                         name: 'Entropy Drake',
-                        stats: { health: 200, attack: 20, defense: 15 },
+                        stats: { health: 200, attack: 20, defense: 15, speed: 18 },
                         tier: 5,
-                        visual: 'entropy_drake.png'
+                        visual: 'entropy_drake.png',
+                        description: 'Dragon born from the heat death of universes'
                     }
                 ];
                 
-                enemies.forEach(e => game.engine.registerEnemy(e));
+                enemies.forEach(e => this.engine.registerEnemy(e));
+                console.log(`Registered ${enemies.length} enemies`);
             },
             
             registerItems() {
@@ -1047,74 +1762,122 @@
                         name: 'Quantum Blade',
                         type: 'weapon',
                         rarity: 'uncommon',
-                        stats: { attack: 15 },
-                        visual: 'quantum_blade.png'
+                        stats: { attack: 15, speed: 5 },
+                        visual: 'quantum_blade.png',
+                        description: 'Cuts through possibilities'
                     },
                     {
                         id: 'reality_shield',
                         name: 'Reality Shield',
                         type: 'armor',
                         rarity: 'rare',
-                        stats: { defense: 20 },
-                        visual: 'reality_shield.png'
+                        stats: { defense: 20, health: 30 },
+                        visual: 'reality_shield.png',
+                        description: 'Anchors you to this moment'
                     },
                     {
                         id: 'void_cloak',
                         name: 'Void Cloak',
                         type: 'armor',
                         rarity: 'epic',
-                        stats: { defense: 30, dodge: 10 },
-                        visual: 'void_cloak.png'
+                        stats: { defense: 30, dodge: 10, speed: 10 },
+                        visual: 'void_cloak.png',
+                        description: 'Woven from forgotten spaces'
                     },
                     {
                         id: 'stellar_glaive',
                         name: 'Stellar Glaive',
                         type: 'weapon',
                         rarity: 'legendary',
-                        stats: { attack: 40, crit: 15 },
-                        visual: 'stellar_glaive.png'
+                        stats: { attack: 40, crit: 15, speed: 15 },
+                        visual: 'stellar_glaive.png',
+                        description: 'Contains dying star\'s final fury'
+                    },
+                    {
+                        id: 'crystal_dagger',
+                        name: 'Crystal Dagger',
+                        type: 'weapon',
+                        rarity: 'common',
+                        stats: { attack: 8 },
+                        visual: 'crystal_dagger.png',
+                        description: 'Sharpened memory fragment'
+                    },
+                    {
+                        id: 'nebulous_robe',
+                        name: 'Nebulous Robe',
+                        type: 'armor',
+                        rarity: 'uncommon',
+                        stats: { defense: 12, health: 20 },
+                        visual: 'nebulous_robe.png',
+                        description: 'Drifting clouds of protection'
                     }
                 ];
                 
-                items.forEach(i => game.engine.registerItem(i));
+                items.forEach(i => this.engine.registerItem(i));
+                console.log(`Registered ${items.length} items`);
             },
             
-            login(username, password) {
-                const playerId = game.engine.hashCredentials(username, password);
+            async login(username, password) {
+                const playerId = this.engine.hashCredentials(username, password);
                 
-                return game.engine.loadGame().then(savedData => {
-                    if (savedData && savedData.playerId === playerId) {
-                        // Load existing player
-                        this.player = new Player(savedData.player);
-                        this.currentPlanet = savedData.currentPlanet;
-                        return true;
-                    } else {
-                        // Create new player
-                        this.player = new Player({
-                            id: playerId,
-                            name: username,
-                            level: 1,
-                            stats: {
-                                health: 100,
-                                maxHealth: 100,
-                                attack: 10,
-                                defense: 5,
-                                speed: 10
-                            },
-                            inventory: [],
-                            echoes: []
-                        });
-                        
-                        // Generate starting planet
-                        this.generatePlanet(1);
-                        return true;
+                const savedData = await this.engine.loadGame();
+                if (savedData && savedData.playerId === playerId) {
+                    // Load existing player
+                    this.player = new Player(savedData.player);
+                    this.currentPlanet = savedData.currentPlanet;
+                    this.player.currentHealth = this.player.stats.health;
+                    console.log('Loaded existing player:', this.player.name);
+                    return true;
+                } else {
+                    // Create new player
+                    this.player = new Player({
+                        id: playerId,
+                        name: username,
+                        level: 1,
+                        stats: {
+                            health: 100,
+                            maxHealth: 100,
+                            attack: 10,
+                            defense: 5,
+                            speed: 10,
+                            critChance: 5,
+                            dodgeChance: 5
+                        },
+                        inventory: [],
+                        echoes: []
+                    });
+                    
+                    // Generate starting planet
+                    this.generatePlanet(1);
+                    console.log('Created new player:', this.player.name);
+                    return true;
+                }
+            },
+            
+            async autoLogin() {
+                try {
+                    const saved = localStorage.getItem('cosmic_fracture_save');
+                    if (saved) {
+                        const data = JSON.parse(saved);
+                        if (data.player && data.player.name) {
+                            document.getElementById('nickname').value = data.player.name;
+                            document.getElementById('password').value = 'autologin';
+                            this.ui.showMessage('Found cosmic signature. Ready for dive.', 'success');
+                        }
                     }
-                });
+                } catch (e) {
+                    console.log('No auto-login possible');
+                }
             },
             
             generatePlanet(level) {
-                const planetRegistry = game.engine.getRegistry('planets');
+                const planetRegistry = this.engine.getRegistry('planets');
                 const planets = Array.from(planetRegistry.values());
+                
+                if (planets.length === 0) {
+                    console.error('No planets registered!');
+                    return null;
+                }
                 
                 // Select random planet template
                 const template = planets[Math.floor(Math.random() * planets.length)];
@@ -1139,45 +1902,71 @@
                 
                 // Apply planet evolution based on level
                 this.currentPlanet.instability += level * 2;
+                this.currentPlanet.instability = Math.min(this.currentPlanet.instability, 100);
                 
                 // Generate distortions based on instability
                 this.generateDistortions();
                 
+                console.log(`Generated planet: ${this.currentPlanet.name} (Level ${level})`);
                 return this.currentPlanet;
             },
             
             generateDistortions() {
-                const distortionRegistry = game.engine.getRegistry('distortions');
+                const distortionRegistry = this.engine.getRegistry('distortions');
                 const distortions = Array.from(distortionRegistry.values());
                 const numDistortions = Math.min(
                     Math.floor(this.currentPlanet.instability / 20),
-                    game.engine.config.distortionCap
+                    this.engine.config.distortionCap
                 );
                 
                 this.currentPlanet.distortions = [];
+                const usedIds = new Set();
+                
                 for (let i = 0; i < numDistortions; i++) {
-                    const distortion = distortions[Math.floor(Math.random() * distortions.length)];
-                    if (!this.currentPlanet.distortions.find(d => d.id === distortion.id)) {
-                        this.currentPlanet.distortions.push({
+                    let attempts = 0;
+                    let distortion;
+                    
+                    do {
+                        distortion = distortions[Math.floor(Math.random() * distortions.length)];
+                        attempts++;
+                    } while (usedIds.has(distortion.id) && attempts < 10);
+                    
+                    if (!usedIds.has(distortion.id)) {
+                        const distortionCopy = {
                             ...distortion,
-                            intensity: 1 + Math.random() * 2
-                        });
+                            intensity: 1 + Math.random()
+                        };
+                        this.currentPlanet.distortions.push(distortionCopy);
+                        usedIds.add(distortion.id);
                     }
                 }
+                
+                console.log(`Generated ${this.currentPlanet.distortions.length} distortions`);
             },
             
             saveGameState() {
+                if (!this.player || !this.currentPlanet) return;
+                
                 const saveData = {
-                    playerId: game.engine.hashCredentials(this.player.name, 'password'), // In real implementation, store actual password hash
+                    playerId: this.player.id,
                     player: this.player.serialize(),
                     currentPlanet: this.currentPlanet,
                     timestamp: Date.now()
                 };
                 
-                return game.engine.saveGame(saveData);
+                this.engine.saveGame(saveData).then(success => {
+                    if (success) {
+                        console.log('Game saved successfully');
+                    }
+                });
             },
             
             startBattle(enemyTemplate) {
+                if (!this.player || !this.currentPlanet) {
+                    console.error('Cannot start battle: player or planet not initialized');
+                    return;
+                }
+                
                 // Create enemy instance
                 const enemy = {
                     ...enemyTemplate,
@@ -1185,16 +1974,33 @@
                     currentHealth: enemyTemplate.baseStats.health
                 };
                 
+                // Scale enemy based on planet level
+                const scale = 1 + (this.currentPlanet.level - 1) * 0.5;
+                Object.keys(enemy.stats).forEach(stat => {
+                    enemy.stats[stat] = Math.floor(enemy.stats[stat] * scale);
+                });
+                enemy.currentHealth = enemy.stats.health;
+                
                 // Apply planet distortions to enemy
                 this.currentPlanet.distortions.forEach(distortion => {
                     if (distortion.apply) {
-                        distortion.apply(this.currentPlanet, enemy);
+                        try {
+                            distortion.apply(this.currentPlanet, enemy);
+                        } catch (e) {
+                            console.error('Error applying distortion:', distortion.name, e);
+                        }
                     }
                 });
+                
+                // Update planet memory
+                this.currentPlanet.memory.visits++;
+                this.currentPlanet.memory.lastVisit = Date.now();
                 
                 // Start battle
                 this.battle.start(this.player, enemy, this.currentPlanet);
                 this.ui.showBattle();
+                
+                console.log(`Battle started against ${enemy.name}`);
             }
         };
 
@@ -1216,14 +2022,15 @@
                     critChance: 5,
                     dodgeChance: 5
                 };
-                this.currentHealth = this.stats.health;
+                this.currentHealth = data.currentHealth || this.stats.health;
                 this.inventory = data.inventory || [];
-                this.equipped = {
+                this.equipped = data.equipped || {
                     weapon: null,
                     armor: null
                 };
-                this.echoes = data.echoes || []; // Past builds
+                this.echoes = data.echoes || [];
                 this.experience = data.experience || 0;
+                this.requiredExp = this.level * game.engine.config.baseExpPerLevel;
             }
             
             serialize() {
@@ -1232,6 +2039,7 @@
                     name: this.name,
                     level: this.level,
                     stats: this.stats,
+                    currentHealth: this.currentHealth,
                     inventory: this.inventory,
                     equipped: this.equipped,
                     echoes: this.echoes,
@@ -1240,41 +2048,74 @@
             }
             
             takeDamage(damage) {
-                const actualDamage = Math.max(1, damage - this.stats.defense);
+                // Calculate actual damage after defense
+                const defenseReduction = this.stats.defense * 0.5;
+                const actualDamage = Math.max(1, Math.floor(damage - defenseReduction));
+                
+                // Check for dodge
+                const dodgeRoll = Math.random() * 100;
+                if (dodgeRoll < this.stats.dodgeChance) {
+                    return { damage: 0, killed: false, dodged: true };
+                }
+                
                 this.currentHealth -= actualDamage;
                 
                 if (this.currentHealth <= 0) {
                     this.currentHealth = 0;
-                    return { damage: actualDamage, killed: true };
+                    return { damage: actualDamage, killed: true, dodged: false };
                 }
                 
-                return { damage: actualDamage, killed: false };
+                return { damage: actualDamage, killed: false, dodged: false };
             }
             
             heal(amount) {
-                this.currentHealth = Math.min(this.stats.maxHealth, this.currentHealth + amount);
-                return amount;
+                const healAmount = Math.min(this.stats.maxHealth - this.currentHealth, amount);
+                this.currentHealth += healAmount;
+                return healAmount;
             }
             
             addItem(item) {
-                this.inventory.push(item);
+                this.inventory.push({ ...item });
+                return item;
             }
             
             equipItem(itemId) {
-                const item = this.inventory.find(i => i.id === itemId);
-                if (!item) return false;
+                const itemIndex = this.inventory.findIndex(i => i.id === itemId);
+                if (itemIndex === -1) return false;
                 
-                if (item.type === 'weapon') {
-                    this.equipped.weapon = item;
-                } else if (item.type === 'armor') {
-                    this.equipped.armor = item;
+                const item = this.inventory[itemIndex];
+                
+                // Unequip current item of same type if exists
+                if (this.equipped[item.type]) {
+                    this.unequipItem(this.equipped[item.type].id);
                 }
+                
+                // Equip new item
+                this.equipped[item.type] = { ...item, equipped: true };
                 
                 // Apply item stats
                 Object.entries(item.stats).forEach(([stat, value]) => {
                     this.stats[stat] = (this.stats[stat] || 0) + value;
                 });
                 
+                return true;
+            }
+            
+            unequipItem(itemId) {
+                const itemType = Object.keys(this.equipped).find(type => 
+                    this.equipped[type] && this.equipped[type].id === itemId
+                );
+                
+                if (!itemType) return false;
+                
+                const item = this.equipped[itemType];
+                
+                // Remove item stats
+                Object.entries(item.stats).forEach(([stat, value]) => {
+                    this.stats[stat] = Math.max(0, (this.stats[stat] || 0) - value);
+                });
+                
+                this.equipped[itemType] = null;
                 return true;
             }
             
@@ -1286,21 +2127,46 @@
                     baseDamage += this.equipped.weapon.stats.attack || 0;
                 }
                 
-                // Critical hit
+                // Critical hit chance
                 const critRoll = Math.random() * 100;
                 const isCrit = critRoll < this.stats.critChance;
                 
                 if (isCrit) {
-                    baseDamage *= 1.5;
+                    baseDamage *= 2.0;
                 }
                 
-                // Random variance
+                // Random variance (80-120%)
                 const variance = 0.8 + Math.random() * 0.4;
+                const finalDamage = Math.floor(baseDamage * variance);
                 
                 return {
-                    damage: Math.floor(baseDamage * variance),
+                    damage: finalDamage,
                     isCrit: isCrit
                 };
+            }
+            
+            addExperience(amount) {
+                this.experience += amount;
+                let leveledUp = false;
+                
+                while (this.experience >= this.requiredExp) {
+                    this.level++;
+                    this.experience -= this.requiredExp;
+                    this.requiredExp = this.level * game.engine.config.baseExpPerLevel;
+                    
+                    // Level up bonuses
+                    this.stats.maxHealth += 20;
+                    this.stats.attack += 5;
+                    this.stats.defense += 3;
+                    this.stats.speed += 2;
+                    
+                    // Restore health on level up
+                    this.currentHealth = this.stats.maxHealth;
+                    
+                    leveledUp = true;
+                }
+                
+                return { leveledUp, newLevel: this.level };
             }
         }
 
@@ -1317,15 +2183,17 @@
                 this.log = [];
                 this.active = false;
                 this.turnOrder = [];
+                this.delayedDamage = [];
             }
             
-            start(player, enemy, planet) {
+            async start(player, enemy, planet) {
                 this.player = player;
                 this.enemy = enemy;
                 this.planet = planet;
                 this.turn = 0;
                 this.log = [];
                 this.active = true;
+                this.delayedDamage = [];
                 
                 // Determine turn order based on speed
                 this.turnOrder = [
@@ -1333,60 +2201,173 @@
                     { type: 'enemy', speed: enemy.stats.speed || 10 }
                 ].sort((a, b) => b.speed - a.speed).map(t => t.type);
                 
-                this.logMessage(`Battle initiated with ${enemy.name}`);
-                this.logMessage(`Planet distortions: ${planet.distortions.map(d => d.name).join(', ')}`);
+                this.logMessage('Reality stabilized. Combat initialized.', 'system');
+                this.logMessage(`Facing: ${enemy.name}`, 'system');
+                
+                if (planet.distortions.length > 0) {
+                    this.logMessage(`Planet distortions active: ${planet.distortions.map(d => d.name).join(', ')}`, 'system');
+                }
                 
                 // Apply distortions
                 this.applyDistortions();
+                
+                // Load visuals
+                await this.loadVisuals();
+                
+                // Update UI
+                this.updateUI();
+                
+                // Auto-start enemy turn if enemy is faster
+                if (this.turnOrder[0] === 'enemy') {
+                    setTimeout(() => this.enemyTurn(), 1000);
+                }
+            }
+            
+            async loadVisuals() {
+                try {
+                    // Load player visual
+                    const playerVisual = await game.engine.loadAsset('player', 'player_base.png');
+                    document.getElementById('playerVisual').style.backgroundImage = `url('${playerVisual}')`;
+                    
+                    // Load enemy visual
+                    const enemyVisual = await game.engine.loadAsset('enemies', this.enemy.visual);
+                    document.getElementById('enemyVisual').style.backgroundImage = `url('${enemyVisual}')`;
+                } catch (error) {
+                    console.error('Error loading battle visuals:', error);
+                }
             }
             
             applyDistortions() {
                 this.planet.distortions.forEach(distortion => {
                     if (distortion.apply) {
                         try {
-                            distortion.apply(this.planet, this);
+                            const result = distortion.apply(this.planet, this);
+                            if (result) {
+                                // Store distortion effects
+                                distortion.effects = result;
+                            }
                         } catch (e) {
-                            console.error('Distortion apply error:', e);
+                            console.error('Distortion apply error:', distortion.name, e);
                         }
                     }
                 });
             }
             
-            logMessage(message) {
-                const timestamp = new Date().toLocaleTimeString();
-                this.log.push({ time: timestamp, message });
+            logMessage(message, type = 'system') {
+                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const entry = { time: timestamp, message, type };
+                this.log.push(entry);
+                
+                // Apply silent orbit distortion (30% chance to hide message)
+                const silentOrbit = this.planet.distortions.find(d => d.id === 'silent_orbit');
+                if (silentOrbit && Math.random() > 0.7) {
+                    return;
+                }
                 
                 // Update UI
                 const logElement = document.getElementById('battleLog');
                 if (logElement) {
-                    const entry = document.createElement('div');
-                    entry.className = 'log-entry';
-                    entry.textContent = `[${timestamp}] ${message}`;
-                    logElement.appendChild(entry);
+                    const entryElement = document.createElement('div');
+                    entryElement.className = `log-entry ${type}`;
+                    entryElement.textContent = `[${timestamp}] ${message}`;
+                    logElement.appendChild(entryElement);
                     logElement.scrollTop = logElement.scrollHeight;
                 }
+                
+                console.log(`[BATTLE] ${message}`);
             }
             
-            playerAttack() {
+            async playerAttack() {
                 if (!this.active) return;
                 
+                this.logMessage(`${this.player.name} attacks!`, 'player');
+                
+                // Calculate damage with possible critical
                 const damageInfo = this.player.calculateDamage();
-                const actualDamage = Math.max(1, damageInfo.damage - (this.enemy.stats.defense || 0));
+                let damage = damageInfo.damage;
                 
-                this.enemy.currentHealth -= actualDamage;
-                
-                let message = `${this.player.name} attacks for ${actualDamage} damage`;
-                if (damageInfo.isCrit) {
-                    message += ' (CRITICAL!)';
+                // Apply observer effect distortion
+                const observerEffect = this.planet.distortions.find(d => d.id === 'observer_effect');
+                if (observerEffect && observerEffect.effects) {
+                    damage *= (1 + observerEffect.effects.critMod || 0);
                 }
                 
-                this.logMessage(message);
-                
-                if (this.enemy.currentHealth <= 0) {
-                    this.enemy.currentHealth = 0;
-                    this.victory();
-                    return;
+                // Apply reality drift distortion
+                const realityDrift = this.planet.distortions.find(d => d.id === 'reality_drift');
+                if (realityDrift && this.planet.damageMultiplier) {
+                    damage *= this.planet.damageMultiplier;
                 }
+                
+                damage = Math.floor(damage);
+                
+                // Check for quantum feedback
+                const quantumFeedback = this.planet.distortions.find(d => d.id === 'quantum_feedback');
+                if (quantumFeedback && quantumFeedback.effects && Math.random() < quantumFeedback.effects.reflectChance) {
+                    const reflectDamage = Math.floor(damage * 0.5);
+                    const damageResult = this.player.takeDamage(reflectDamage);
+                    this.logMessage(`Quantum feedback! ${reflectDamage} damage reflected back!`, 'system');
+                    if (damageResult.dodged) {
+                        this.logMessage(`${this.player.name} dodged the reflected damage!`, 'player');
+                    } else if (damageResult.killed) {
+                        this.logMessage(`${this.player.name} was killed by reflected damage!`, 'system');
+                        this.defeat();
+                        return;
+                    }
+                }
+                
+                // Apply damage
+                const actualDamage = Math.max(1, damage - (this.enemy.stats.defense || 0));
+                
+                // Check for temporal lag
+                const temporalLag = this.planet.distortions.find(d => d.id === 'temporal_lag');
+                if (temporalLag && temporalLag.effects && temporalLag.effects.delayedDamage) {
+                    this.delayedDamage.push({
+                        target: 'enemy',
+                        damage: actualDamage,
+                        isCrit: damageInfo.isCrit,
+                        turn: this.turn + 1
+                    });
+                    this.logMessage('Damage delayed by temporal lag...', 'system');
+                } else {
+                    this.enemy.currentHealth -= actualDamage;
+                    
+                    let message = `Hit for ${actualDamage} damage`;
+                    if (damageInfo.isCrit) {
+                        message += ' (CRITICAL STRIKE!)';
+                    }
+                    this.logMessage(message, 'player');
+                    
+                    if (this.enemy.currentHealth <= 0) {
+                        this.enemy.currentHealth = 0;
+                        this.victory();
+                        return;
+                    }
+                }
+                
+                // Process delayed damage
+                this.processDelayedDamage();
+                
+                this.enemyTurn();
+            }
+            
+            playerDefend() {
+                if (!this.active) return;
+                
+                this.logMessage(`${this.player.name} raises a defensive stance!`, 'player');
+                
+                // Temporary defense boost
+                const originalDefense = this.player.stats.defense;
+                this.player.stats.defense += 10;
+                
+                // Apply gravitational collapse distortion
+                const gravitationalCollapse = this.planet.distortions.find(d => d.id === 'gravitational_collapse');
+                if (gravitationalCollapse) {
+                    this.player.stats.defense *= 0.5;
+                }
+                
+                setTimeout(() => {
+                    this.player.stats.defense = originalDefense;
+                }, 1000);
                 
                 this.enemyTurn();
             }
@@ -1396,70 +2377,134 @@
                 
                 // Simple enemy AI
                 const enemyDamage = Math.max(1, (this.enemy.stats.attack || 10) - this.player.stats.defense);
+                this.logMessage(`${this.enemy.name} attacks!`, 'enemy');
+                
                 const damageResult = this.player.takeDamage(enemyDamage);
                 
-                this.logMessage(`${this.enemy.name} attacks for ${damageResult.damage} damage`);
+                if (damageResult.dodged) {
+                    this.logMessage(`${this.player.name} dodged the attack!`, 'player');
+                } else {
+                    this.logMessage(`Hit for ${damageResult.damage} damage`, 'enemy');
+                    
+                    if (damageResult.killed) {
+                        this.logMessage(`${this.player.name} has been defeated!`, 'system');
+                        this.defeat();
+                        return;
+                    }
+                }
                 
-                if (damageResult.killed) {
-                    this.logMessage(`${this.player.name} has been defeated!`);
-                    this.defeat();
-                    return;
+                // Apply phase instability distortion
+                const phaseInstability = this.planet.distortions.find(d => d.id === 'phase_instability');
+                if (phaseInstability) {
+                    try {
+                        phaseInstability.apply(this.player);
+                        this.logMessage('Phase instability! Stats shifted randomly!', 'system');
+                    } catch (e) {
+                        console.error('Phase instability error:', e);
+                    }
                 }
                 
                 this.turn++;
                 this.updateUI();
+                
+                // Check for fractured time distortion
+                const fracturedTime = this.planet.distortions.find(d => d.id === 'fractured_time');
+                if (fracturedTime && Math.random() > 0.5) {
+                    this.turnOrder.reverse();
+                    this.logMessage('Fractured time! Turn order reversed!', 'system');
+                }
+            }
+            
+            processDelayedDamage() {
+                const now = this.turn;
+                const toProcess = this.delayedDamage.filter(d => d.turn <= now);
+                
+                toProcess.forEach(damage => {
+                    if (damage.target === 'enemy') {
+                        this.enemy.currentHealth -= damage.damage;
+                        let message = `Delayed damage hits for ${damage.damage}`;
+                        if (damage.isCrit) {
+                            message += ' (CRITICAL!)';
+                        }
+                        this.logMessage(message, 'player');
+                        
+                        if (this.enemy.currentHealth <= 0) {
+                            this.enemy.currentHealth = 0;
+                            this.victory();
+                        }
+                    }
+                });
+                
+                // Remove processed damage
+                this.delayedDamage = this.delayedDamage.filter(d => d.turn > now);
             }
             
             victory() {
-                this.logMessage(`${this.enemy.name} defeated!`);
+                this.logMessage(`${this.enemy.name} defeated!`, 'system');
                 this.active = false;
                 
                 // Update planet memory
                 this.planet.memory.victories++;
-                this.planet.memory.visits++;
                 
                 // Grant rewards
-                const expGained = this.enemy.stats.health || 100;
-                this.player.experience += expGained;
+                const expGained = Math.floor((this.enemy.stats.health || 100) * 0.5);
+                const levelResult = this.player.addExperience(expGained);
                 
-                // Chance for item drop
-                if (Math.random() > 0.7) {
+                this.logMessage(`Gained ${expGained} experience`, 'system');
+                
+                if (levelResult.leveledUp) {
+                    this.logMessage(`Level up! Reached level ${levelResult.newLevel}!`, 'system');
+                    this.logMessage(`Health increased to ${this.player.stats.maxHealth}`, 'system');
+                }
+                
+                // Chance for item drop (scales with enemy tier)
+                const dropChance = 0.3 + (this.enemy.tier || 1) * 0.1;
+                if (Math.random() < dropChance) {
                     const itemRegistry = game.engine.getRegistry('items');
                     const items = Array.from(itemRegistry.values());
-                    const randomItem = items[Math.floor(Math.random() * items.length)];
-                    this.player.addItem({ ...randomItem });
-                    this.logMessage(`Found: ${randomItem.name}`);
+                    const availableItems = items.filter(item => {
+                        const rarityTier = {
+                            'common': 1,
+                            'uncommon': 2,
+                            'rare': 3,
+                            'epic': 4,
+                            'legendary': 5
+                        };
+                        return rarityTier[item.rarity] <= (this.enemy.tier || 1);
+                    });
+                    
+                    if (availableItems.length > 0) {
+                        const randomItem = availableItems[Math.floor(Math.random() * availableItems.length)];
+                        const itemCopy = { ...randomItem };
+                        this.player.addItem(itemCopy);
+                        this.logMessage(`Found: ${itemCopy.name}`, 'system');
+                    }
                 }
                 
-                this.logMessage(`Gained ${expGained} experience`);
+                // Increase planet corruption slightly
+                this.planet.corruption = Math.min(100, this.planet.corruption + 5);
                 
-                // Check level up
-                const expNeeded = this.player.level * 100;
-                if (this.player.experience >= expNeeded) {
-                    this.player.level++;
-                    this.player.experience -= expNeeded;
-                    this.player.stats.maxHealth += 20;
-                    this.player.stats.attack += 5;
-                    this.player.stats.defense += 2;
-                    this.player.currentHealth = this.player.stats.maxHealth;
-                    this.logMessage(`Level up! Reached level ${this.player.level}`);
-                }
+                // Update UI
+                setTimeout(() => {
+                    game.ui.updatePlayerDisplay();
+                    game.ui.showPlanet();
+                }, 2000);
             }
             
             defeat() {
-                this.logMessage('You have been defeated...');
+                this.logMessage('You have been defeated...', 'system');
                 this.active = false;
                 
                 // Update planet memory
                 this.planet.memory.deaths++;
-                this.planet.memory.visits++;
                 
                 // Add echo of this build
                 this.player.echoes.push({
                     timestamp: Date.now(),
                     level: this.player.level,
                     stats: { ...this.player.stats },
-                    equipped: { ...this.player.equipped }
+                    equipped: { ...this.player.equipped },
+                    health: this.player.currentHealth
                 });
                 
                 // Limit echoes
@@ -1467,37 +2512,67 @@
                     this.player.echoes.shift();
                 }
                 
-                // Increase corruption
-                this.planet.corruption += 10;
+                // Increase corruption significantly
+                this.planet.corruption = Math.min(100, this.planet.corruption + 15);
+                
+                // Increase instability
+                this.planet.instability = Math.min(100, this.planet.instability + 10);
+                
+                // Generate new distortions if corruption is high
+                if (this.planet.corruption >= 50 && this.planet.distortions.length < game.engine.config.distortionCap) {
+                    game.generateDistortions();
+                }
                 
                 // Respawn with partial health
                 setTimeout(() => {
                     this.player.currentHealth = Math.floor(this.player.stats.maxHealth * 0.3);
-                    this.updateUI();
+                    this.logMessage('Reality reforms around you...', 'system');
+                    game.ui.updatePlayerDisplay();
                     game.ui.showPlayer();
-                }, 2000);
+                }, 3000);
             }
             
             updateUI() {
-                // Update health bars
+                if (!this.player || !this.enemy) return;
+                
+                // Update health bars and numbers
                 const playerHealthPercent = (this.player.currentHealth / this.player.stats.maxHealth) * 100;
-                const enemyHealthPercent = (this.enemy.currentHealth / (this.enemy.stats.health || 100)) * 100;
+                const enemyHealthPercent = (this.enemy.currentHealth / this.enemy.stats.health) * 100;
                 
                 document.getElementById('playerHealthBar').style.width = `${playerHealthPercent}%`;
                 document.getElementById('enemyHealthBar').style.width = `${enemyHealthPercent}%`;
                 
-                // Update stats display
-                document.getElementById('playerStatsBattle').innerHTML = `
-                    HP: ${this.player.currentHealth}/${this.player.stats.maxHealth}<br>
-                    ATK: ${this.player.stats.attack}<br>
-                    DEF: ${this.player.stats.defense}
-                `;
+                document.getElementById('playerHP').textContent = `${this.player.currentHealth}/${this.player.stats.maxHealth}`;
+                document.getElementById('playerATK').textContent = this.player.stats.attack;
+                document.getElementById('playerDEF').textContent = this.player.stats.defense;
                 
-                document.getElementById('enemyStats').innerHTML = `
-                    HP: ${this.enemy.currentHealth}/${this.enemy.stats.health}<br>
-                    ATK: ${this.enemy.stats.attack}<br>
-                    DEF: ${this.enemy.stats.defense || 0}
-                `;
+                document.getElementById('enemyHP').textContent = `${this.enemy.currentHealth}/${this.enemy.stats.health}`;
+                document.getElementById('enemyATK').textContent = this.enemy.stats.attack;
+                document.getElementById('enemyDEF').textContent = this.enemy.stats.defense || 0;
+                
+                // Update names
+                document.getElementById('playerName').textContent = this.player.name;
+                document.getElementById('enemyName').textContent = this.enemy.name;
+            }
+            
+            flee() {
+                if (!this.active) return;
+                
+                const successChance = 0.6 - (this.planet.instability * 0.01);
+                if (Math.random() < successChance) {
+                    this.logMessage('Successfully fled from battle!', 'system');
+                    this.active = false;
+                    
+                    // Still count as a visit
+                    this.planet.memory.visits++;
+                    
+                    setTimeout(() => {
+                        game.ui.showPlanet();
+                    }, 1000);
+                } else {
+                    this.logMessage('Failed to flee!', 'system');
+                    this.enemyTurn();
+                }
             }
         }
 
@@ -1506,26 +2581,22 @@
         // ====================
 
         class UISystem {
-            init() {
+            constructor() {
+                this.tooltip = document.getElementById('tooltip');
+                this.tooltipTimeout = null;
+            }
+            
+            async init() {
                 // Login handler
                 document.getElementById('loginBtn').addEventListener('click', () => {
-                    const username = document.getElementById('nickname').value.trim();
-                    const password = document.getElementById('password').value;
-                    
-                    if (!username || !password) {
-                        this.showMessage('Quantum signature incomplete');
-                        return;
+                    this.handleLogin();
+                });
+                
+                // Enter key for login
+                document.getElementById('password').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.handleLogin();
                     }
-                    
-                    game.login(username, password).then(success => {
-                        if (success) {
-                            this.showGame();
-                            this.updatePlayerDisplay();
-                            this.generatePlanetGrid();
-                        } else {
-                            this.showMessage('Reality authentication failed');
-                        }
-                    });
                 });
                 
                 // Navigation
@@ -1545,38 +2616,87 @@
                 
                 document.querySelector('.defend-btn').addEventListener('click', () => {
                     if (game.battle && game.battle.active) {
-                        game.player.stats.defense += 5;
-                        game.battle.logMessage(`${game.player.name} defends, increasing defense`);
-                        game.battle.enemyTurn();
-                        setTimeout(() => {
-                            game.player.stats.defense -= 5;
-                        }, 1000);
+                        game.battle.playerDefend();
                     }
                 });
                 
                 document.querySelector('.flee-btn').addEventListener('click', () => {
                     if (game.battle && game.battle.active) {
-                        if (Math.random() > 0.5) {
-                            game.battle.logMessage('Successfully fled from battle');
-                            game.battle.active = false;
-                            game.ui.showPlanet();
-                        } else {
-                            game.battle.logMessage('Failed to flee!');
-                            game.battle.enemyTurn();
+                        if (confirm('Attempt to flee from battle?')) {
+                            game.battle.flee();
                         }
                     }
                 });
                 
+                document.querySelector('.item-btn').addEventListener('click', () => {
+                    this.showMessage('Item system under construction', 'system');
+                });
+                
+                // Tooltip handling
+                document.addEventListener('mousemove', (e) => {
+                    this.tooltip.style.left = (e.pageX + 10) + 'px';
+                    this.tooltip.style.top = (e.pageY + 10) + 'px';
+                });
+                
                 // Apply distortion visual effects
                 this.applyDistortionEffects();
+                
+                console.log('UI System initialized');
             }
             
-            showMessage(message) {
+            async handleLogin() {
+                const username = document.getElementById('nickname').value.trim();
+                const password = document.getElementById('password').value;
+                
+                if (!username) {
+                    this.showMessage('Quantum signature required', 'error');
+                    return;
+                }
+                
+                if (!password) {
+                    this.showMessage('Reality key required', 'error');
+                    return;
+                }
+                
+                if (username.length < 3) {
+                    this.showMessage('Signature too short (min 3 characters)', 'error');
+                    return;
+                }
+                
+                if (password.length < 4) {
+                    this.showMessage('Key too weak (min 4 characters)', 'error');
+                    return;
+                }
+                
+                this.showMessage('Initializing reality dive...', 'success');
+                
+                try {
+                    const success = await game.login(username, password);
+                    if (success) {
+                        this.showGame();
+                        await this.updatePlayerDisplay();
+                        await this.generatePlanetGrid();
+                        this.showMessage('Welcome to the fractured cosmos', 'success');
+                    } else {
+                        this.showMessage('Reality authentication failed', 'error');
+                    }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    this.showMessage('Quantum entanglement error', 'error');
+                }
+            }
+            
+            showMessage(message, type = 'info') {
                 const element = document.getElementById('loginMessage');
                 element.textContent = message;
-                setTimeout(() => {
-                    element.textContent = '';
-                }, 3000);
+                element.className = type === 'error' ? 'message-error' : 'message-success';
+                
+                if (type !== 'error') {
+                    setTimeout(() => {
+                        element.textContent = '';
+                        element.className = '';
+                    }, 3000);
+                }
             }
             
             showGame() {
@@ -1612,144 +2732,253 @@
                 this.showTab('planetTab');
             }
             
-            updatePlayerDisplay() {
+            async updatePlayerDisplay() {
                 if (!game.player) return;
                 
                 const player = game.player;
+                const planet = game.currentPlanet;
                 
                 // Update header stats
-                document.getElementById('planetLevel').textContent = game.currentPlanet?.level || 1;
-                document.getElementById('corruptionLevel').textContent = `${Math.min(game.currentPlanet?.corruption || 0, 100)}%`;
+                document.getElementById('planetLevel').textContent = planet?.level || 1;
+                document.getElementById('corruptionLevel').textContent = `${Math.min(planet?.corruption || 0, 100)}%`;
                 
-                const instability = game.currentPlanet?.instability || 0;
+                const instability = planet?.instability || 0;
                 let instabilityText = 'Low';
                 if (instability > 50) instabilityText = 'High';
                 else if (instability > 20) instabilityText = 'Medium';
                 document.getElementById('instabilityLevel').textContent = instabilityText;
                 
                 document.getElementById('echoCount').textContent = player.echoes.length;
-                document.getElementById('distortionCount').textContent = game.currentPlanet?.distortions.length || 0;
+                document.getElementById('distortionCount').textContent = planet?.distortions.length || 0;
                 
-                // Update player tab
-                document.getElementById('playerStats').innerHTML = `
-                    <div class="stat-box">
-                        <div class="stat-label">Level</div>
-                        <div class="stat-value">${player.level}</div>
+                // Update player stats tab
+                const statsGrid = document.getElementById('playerStats');
+                statsGrid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="label">Level</div>
+                        <div class="value">${player.level}</div>
+                        <div class="subvalue">${player.experience}/${player.requiredExp} XP</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Health</div>
-                        <div class="stat-value">${player.currentHealth}/${player.stats.maxHealth}</div>
+                    <div class="stat-card">
+                        <div class="label">Health</div>
+                        <div class="value">${player.currentHealth}/${player.stats.maxHealth}</div>
+                        <div class="subvalue">${Math.floor((player.currentHealth / player.stats.maxHealth) * 100)}%</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Attack</div>
-                        <div class="stat-value">${player.stats.attack}</div>
+                    <div class="stat-card">
+                        <div class="label">Attack</div>
+                        <div class="value">${player.stats.attack}</div>
+                        <div class="subvalue">${player.stats.critChance}% crit</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Defense</div>
-                        <div class="stat-value">${player.stats.defense}</div>
+                    <div class="stat-card">
+                        <div class="label">Defense</div>
+                        <div class="value">${player.stats.defense}</div>
+                        <div class="subvalue">${player.stats.dodgeChance}% dodge</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Experience</div>
-                        <div class="stat-value">${player.experience}/${player.level * 100}</div>
+                    <div class="stat-card">
+                        <div class="label">Speed</div>
+                        <div class="value">${player.stats.speed}</div>
+                        <div class="subvalue">Turn priority</div>
                     </div>
                 `;
                 
+                // Update equipped items
+                const equippedGrid = document.getElementById('equippedItems');
+                equippedGrid.innerHTML = '';
+                
+                for (const [type, item] of Object.entries(player.equipped)) {
+                    if (item) {
+                        const itemElement = await this.createItemElement(item, true);
+                        equippedGrid.appendChild(itemElement);
+                    }
+                }
+                
                 // Update inventory
+                await this.updateInventoryDisplay();
+            }
+            
+            async updateInventoryDisplay() {
+                if (!game.player) return;
+                
                 const inventoryGrid = document.getElementById('inventoryGrid');
                 inventoryGrid.innerHTML = '';
                 
-                player.inventory.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = `planet-card ${item.rarity}`;
-                    itemElement.innerHTML = `
-                        <div class="planet-name">${item.name}</div>
-                        <div class="planet-meta">${item.type.toUpperCase()} - ${item.rarity.toUpperCase()}</div>
-                        <div>${Object.entries(item.stats).map(([k, v]) => `${k}: ${v}`).join(', ')}</div>
-                    `;
-                    itemElement.addEventListener('click', () => {
-                        if (player.equipItem(item.id)) {
-                            this.updatePlayerDisplay();
-                        }
-                    });
-                    inventoryGrid.appendChild(itemElement);
-                });
+                if (game.player.inventory.length === 0) {
+                    inventoryGrid.innerHTML = '<div class="loading">No reality anchors found</div>';
+                    return;
+                }
                 
-                // Update battle display
-                if (game.battle && game.battle.enemy) {
-                    document.getElementById('playerName').textContent = player.name;
-                    document.getElementById('enemyName').textContent = game.battle.enemy.name;
-                    game.battle.updateUI();
+                for (const item of game.player.inventory) {
+                    const itemElement = await this.createItemElement(item, false);
+                    inventoryGrid.appendChild(itemElement);
                 }
             }
             
-            generatePlanetGrid() {
+            async createItemElement(item, isEquipped) {
+                const itemElement = document.createElement('div');
+                itemElement.className = `item-card ${item.rarity} ${isEquipped ? 'equipped' : ''}`;
+                
+                try {
+                    const visualSrc = await game.engine.loadAsset('items', item.visual);
+                    itemElement.innerHTML = `
+                        <div class="item-visual" style="background-image: url('${visualSrc}')"></div>
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-stats">
+                            ${Object.entries(item.stats).map(([k, v]) => 
+                                `<div>${k.toUpperCase()}: +${v}</div>`
+                            ).join('')}
+                        </div>
+                        <div class="item-type">${item.type.toUpperCase()} • ${item.rarity.toUpperCase()}</div>
+                    `;
+                } catch (error) {
+                    itemElement.innerHTML = `
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-type">${item.type.toUpperCase()} • ${item.rarity.toUpperCase()}</div>
+                    `;
+                }
+                
+                if (!isEquipped) {
+                    itemElement.addEventListener('click', () => {
+                        if (game.player.equipItem(item.id)) {
+                            this.updatePlayerDisplay();
+                            this.updateInventoryDisplay();
+                            this.showMessage(`Equipped ${item.name}`, 'success');
+                        }
+                    });
+                }
+                
+                // Add tooltip
+                itemElement.addEventListener('mouseenter', (e) => {
+                    this.showTooltip(e.target, item.description || 'No description available');
+                });
+                
+                itemElement.addEventListener('mouseleave', () => {
+                    this.hideTooltip();
+                });
+                
+                return itemElement;
+            }
+            
+            async generatePlanetGrid() {
                 const grid = document.getElementById('planetGrid');
                 grid.innerHTML = '';
                 
+                if (!game.currentPlanet) {
+                    grid.innerHTML = '<div class="loading">Generating cosmic fabric...</div>';
+                    return;
+                }
+                
                 // Show current planet
-                if (game.currentPlanet) {
-                    const planet = game.currentPlanet;
-                    const planetElement = document.createElement('div');
-                    planetElement.className = 'planet-card pulse';
-                    planetElement.innerHTML = `
-                        <div class="planet-name">${planet.name}</div>
-                        <div class="planet-meta">Level ${planet.level}</div>
-                        <div class="planet-meta">Instability: ${planet.instability}</div>
-                        <div class="planet-meta">Distortions: ${planet.distortions.length}</div>
-                        <div class="planet-meta">Memory: ${planet.memory.visits} visits</div>
-                    `;
+                const currentPlanetElement = await this.createPlanetElement(game.currentPlanet, true);
+                grid.appendChild(currentPlanetElement);
+                
+                // Generate adjacent planets (simplified for demo)
+                for (let i = 1; i <= 5; i++) {
+                    const planetElement = await this.createPlanetElement({
+                        name: `Sector ${String.fromCharCode(65 + i)}-${game.currentPlanet.level + i}`,
+                        level: game.currentPlanet.level + i,
+                        instability: Math.min(100, game.currentPlanet.instability + i * 5),
+                        corruption: Math.min(100, game.currentPlanet.corruption + i * 2),
+                        visual: game.currentPlanet.visual,
+                        distortions: [],
+                        memory: { visits: 0 }
+                    }, false);
+                    
                     planetElement.addEventListener('click', () => {
+                        if (confirm(`Travel to ${planetElement.querySelector('.planet-name').textContent}?`)) {
+                            game.generatePlanet(game.currentPlanet.level + i);
+                            this.updatePlayerDisplay();
+                            this.generatePlanetGrid();
+                        }
+                    });
+                    
+                    grid.appendChild(planetElement);
+                }
+            }
+            
+            async createPlanetElement(planetData, isCurrent) {
+                const planetElement = document.createElement('div');
+                planetElement.className = `planet-card ${isCurrent ? 'active' : ''}`;
+                
+                try {
+                    const visualSrc = await game.engine.loadAsset('planets', planetData.visual);
+                    
+                    planetElement.innerHTML = `
+                        <div class="planet-name">${planetData.name}</div>
+                        <div class="planet-visual" style="background-image: url('${visualSrc}')"></div>
+                        <div class="planet-meta">
+                            <span>Level</span>
+                            <span>${planetData.level}</span>
+                        </div>
+                        <div class="planet-meta">
+                            <span>Instability</span>
+                            <span>${Math.floor(planetData.instability)}%</span>
+                        </div>
+                        <div class="planet-meta">
+                            <span>Corruption</span>
+                            <span>${Math.floor(planetData.corruption)}%</span>
+                        </div>
+                        <div class="planet-meta">
+                            <span>Memory</span>
+                            <span>${planetData.memory?.visits || 0} visits</span>
+                        </div>
+                        ${planetData.distortions && planetData.distortions.length > 0 ? 
+                            `<div class="planet-distortions">
+                                ${planetData.distortions.length} active distortions
+                            </div>` : ''
+                        }
+                    `;
+                } catch (error) {
+                    planetElement.innerHTML = `
+                        <div class="planet-name">${planetData.name}</div>
+                        <div class="planet-meta">Level ${planetData.level}</div>
+                        <div class="planet-meta">Instability: ${planetData.instability}%</div>
+                        <div class="planet-meta">Corruption: ${planetData.corruption}%</div>
+                    `;
+                }
+                
+                if (isCurrent) {
+                    planetElement.addEventListener('click', async () => {
                         // Generate random enemy for this planet
                         const enemyRegistry = game.engine.getRegistry('enemies');
                         const enemies = Array.from(enemyRegistry.values());
-                        const enemyTemplate = enemies[Math.floor(Math.random() * enemies.length)];
                         
-                        // Scale enemy based on planet level
-                        const scaledEnemy = {
-                            ...enemyTemplate,
-                            baseStats: {
-                                ...enemyTemplate.baseStats,
-                                health: enemyTemplate.baseStats.health * planet.level,
-                                attack: enemyTemplate.baseStats.attack * planet.level,
-                                defense: enemyTemplate.baseStats.defense * planet.level
+                        if (enemies.length === 0) {
+                            this.showMessage('No enemies registered!', 'error');
+                            return;
+                        }
+                        
+                        // Weight enemies by tier (higher tier = less likely at low levels)
+                        const weightedEnemies = [];
+                        enemies.forEach(enemy => {
+                            let weight = 5 - (enemy.tier || 1);
+                            weight = Math.max(1, weight);
+                            for (let i = 0; i < weight; i++) {
+                                weightedEnemies.push(enemy);
                             }
-                        };
+                        });
                         
-                        game.startBattle(scaledEnemy);
+                        const enemyTemplate = weightedEnemies[Math.floor(Math.random() * weightedEnemies.length)];
+                        
+                        if (confirm(`Initiate combat on ${planetData.name}?`)) {
+                            game.startBattle(enemyTemplate);
+                        }
                     });
-                    grid.appendChild(planetElement);
                 }
                 
-                // Generate adjacent planets (simplified)
-                for (let i = 1; i <= 6; i++) {
-                    const planetElement = document.createElement('div');
-                    planetElement.className = 'planet-card';
-                    const planetLevel = (game.currentPlanet?.level || 1) + i;
-                    planetElement.innerHTML = `
-                        <div class="planet-name">Unknown Sector</div>
-                        <div class="planet-meta">Level ${planetLevel}</div>
-                        <div class="planet-meta">Uncharted</div>
-                    `;
-                    planetElement.addEventListener('click', () => {
-                        // In full implementation, this would generate a new planet
-                        game.generatePlanet(planetLevel);
-                        this.updatePlayerDisplay();
-                        this.generatePlanetGrid();
-                    });
-                    grid.appendChild(planetElement);
-                }
+                return planetElement;
             }
             
             applyDistortionEffects() {
                 const overlay = document.getElementById('distortionOverlay');
                 
-                // Apply random distortion effects
+                // Apply random distortion effects based on current planet
                 setInterval(() => {
                     if (game.currentPlanet) {
                         const instability = game.currentPlanet.instability;
                         
                         if (instability > 50) {
                             // High instability effects
+                            overlay.style.opacity = '0.1';
                             overlay.style.background = `
                                 radial-gradient(circle at ${Math.random() * 100}% ${Math.random() * 100}%, 
                                 rgba(255, 85, 85, 0.3), transparent 50%),
@@ -1766,15 +2995,35 @@
                             }
                         } else if (instability > 20) {
                             // Medium instability
+                            overlay.style.opacity = '0.05';
                             overlay.style.background = `
                                 radial-gradient(circle at ${Math.random() * 100}% ${Math.random() * 100}%, 
                                 rgba(145, 65, 172, 0.2), transparent 50%)
                             `;
                         } else {
-                            overlay.style.background = 'none';
+                            overlay.style.opacity = '0';
                         }
                     }
                 }, 2000);
+            }
+            
+            showTooltip(element, text) {
+                if (this.tooltipTimeout) {
+                    clearTimeout(this.tooltipTimeout);
+                }
+                
+                this.tooltip.textContent = text;
+                this.tooltip.classList.add('show');
+                
+                // Position tooltip
+                const rect = element.getBoundingClientRect();
+                this.tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+                this.tooltip.style.top = (rect.top - 10) + 'px';
+                this.tooltip.style.transform = 'translate(-50%, -100%)';
+            }
+            
+            hideTooltip() {
+                this.tooltip.classList.remove('show');
             }
         }
 
@@ -1782,24 +3031,14 @@
         // INITIALIZATION
         // ====================
 
-        document.addEventListener('DOMContentLoaded', () => {
-            game.init();
-            
-            // Auto-attempt login if credentials exist
-            const saved = localStorage.getItem('cosmic_fracture_save');
-            if (saved) {
-                try {
-                    const data = JSON.parse(saved);
-                    if (data.player) {
-                        // Auto-login for demo purposes
-                        // In production, you'd prompt for password
-                        document.getElementById('nickname').value = data.player.name;
-                        document.getElementById('password').value = 'demo';
-                        document.getElementById('loginBtn').click();
-                    }
-                } catch (e) {
-                    console.log('No valid save found');
-                }
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await game.init();
+                console.log('Cosmic Fracture: Eternal Echoes loaded successfully');
+            } catch (error) {
+                console.error('Failed to initialize game:', error);
+                document.getElementById('loginMessage').textContent = 'Initialization error. Check console.';
+                document.getElementById('loginMessage').className = 'message-error';
             }
         });
 
@@ -1807,31 +3046,31 @@
         // CONTENT REGISTRATION EXAMPLES
         // ====================
 
-        // Example of how to add new content without modifying core logic:
-        // This would be in a separate content pack file
-
+        // Example of how to add new content (uncomment to use):
         /*
         // Register new distortion
         game.engine.extensionPoints.registerDistortion({
-            id: 'chronal_rupture',
-            name: 'Chronal Rupture',
-            description: 'Time flows backwards occasionally',
+            id: 'temporal_paradox',
+            name: 'Temporal Paradox',
+            description: 'Actions sometimes create time paradoxes',
+            color: '#ff55ff',
             apply: (planet, combat) => {
                 if (Math.random() > 0.9) {
-                    combat.turnOrder.reverse();
-                    combat.logMessage('Time has ruptured! Turn order reversed.');
+                    combat.logMessage('Temporal paradox! Reality glitches...', 'system');
+                    return { timeParadox: true };
                 }
             }
         });
 
         // Register new planet
         game.engine.extensionPoints.registerPlanet({
-            id: 'temporal_nexus',
-            name: 'Temporal Nexus',
+            id: 'chrono_nexus',
+            name: 'Chrono Nexus',
             biome: 'time',
             baseInstability: 75,
             corruptionRate: 3.0,
-            visual: 'temporal_planet.png'
+            visual: 'chrono_nexus.png',
+            description: 'Where all timelines converge and collapse'
         });
 
         // Register new enemy
@@ -1840,7 +3079,8 @@
             name: 'Time Reaver',
             stats: { health: 120, attack: 18, defense: 8, speed: 15 },
             tier: 3,
-            visual: 'time_reaver.png'
+            visual: 'time_reaver.png',
+            description: 'Feeds on discarded timelines'
         });
 
         // Register new item
@@ -1849,8 +3089,9 @@
             name: 'Chrono Blade',
             type: 'weapon',
             rarity: 'epic',
-            stats: { attack: 35, speed: 10 },
-            visual: 'chrono_blade.png'
+            stats: { attack: 35, speed: 10, crit: 10 },
+            visual: 'chrono_blade.png',
+            description: 'Cuts through time itself'
         });
         */
     </script>
